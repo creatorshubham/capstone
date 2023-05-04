@@ -3,6 +3,7 @@ pipeline{
   environment{
    DOCKER_CERT_PATH = credentials('docker-hub')
    IMAGE_TAG = "${BUILD_NUMBER}"
+   REGISTRY_CREDENTIALS = credentials('docker-hub')
   }
   stages{
    stage('Build Docker'){
