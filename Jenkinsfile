@@ -18,9 +18,11 @@ pipeline{
   }
    stage('Pushing to Docker Hub'){
     steps{
+     withCredentials([usernameColonPassword(credentialsId: 'docker-hub', variable: '')]) {
       script{
         sh 'docker push creatorshubham/capstone:v.${BUILD_NUMBER}'
       }
+}
     }
    }
   }
