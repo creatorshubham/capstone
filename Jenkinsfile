@@ -1,8 +1,5 @@
 pipeline{
  agent any
-  environment{
-   IMAGE_TAG = "${BUILD_NUMBER}"
-  }
   stages{
    stage('Build Docker'){
     steps{
@@ -24,6 +21,13 @@ pipeline{
 }
     }
    }
+   stage('Deploying React.js container to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deployment.yaml")
+        }
+      }
+    }
   }
   
 }
