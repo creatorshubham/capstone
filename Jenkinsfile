@@ -18,7 +18,7 @@ pipeline{
    stage('Pushing to Docker Hub'){
     steps{
       script{
-        sh 'docker push /creatorshubham/capstone:v.${BUILD_NUMBER}'
+        sh 'docker push creatorshubham/capstone:v.${BUILD_NUMBER}'
       }
     }
    }
