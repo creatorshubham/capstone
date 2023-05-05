@@ -14,7 +14,7 @@ spec:
       app: run-pods
    spec:
     containers:
-     - name: capstoneContainer
+     - name: capstonecontainer
        image: creatorshubham/capstone:v.22
 
 ---
