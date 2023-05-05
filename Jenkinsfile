@@ -26,9 +26,9 @@ pipeline{
        withKubeConfig([credentialsId: 'kube-config']) {
     script{
      sh 'kubectl apply -f deployment.yml'
+     sh 'kubectl set image deployment/deployment01 capstoneContainer=creatorshubham/capstone:v.${BUILD_NUMBER}'
         }
 }
-        
       }
     }
   }
