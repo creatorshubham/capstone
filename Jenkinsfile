@@ -24,7 +24,7 @@ pipeline{
      script{
       sh '''
        echo 'Buid Docker Image'
-       docker build -t creatorshubham/capstone/develop:v.${BUILD_NUMBER} .
+       docker build -t creatorshubham/capstone:development-v.${BUILD_NUMBER} .
          '''
      }
     }
@@ -34,7 +34,7 @@ pipeline{
      withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'pass')]) {
       script{
        sh 'docker login -u creatorshubham -p ${pass}'
-        sh 'docker push creatorshubham/capstone/develop:v.${BUILD_NUMBER}'
+        sh 'docker push creatorshubham/capstone:development-v.${BUILD_NUMBER}'
       }
 }
     }
