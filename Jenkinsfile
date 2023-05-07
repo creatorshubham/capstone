@@ -8,13 +8,13 @@ pipeline{
      //}
     //}
    //}
-   stage('Build Artifact'){
-    steps{
-     script{
-      sh 'tar cf app.tar /'
-     }
-    }
-   }
+   //stage('Build Artifact'){
+    //steps{
+     //script{
+      //sh 'tar cf app.tar /'
+     //}
+    //}
+   //}
    stage('Build Docker Image'){
     steps{
      script{
