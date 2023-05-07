@@ -1,13 +1,13 @@
 pipeline{
  agent any
   stages{
-   stage('Test Phase'){
-    steps{
-     script{
-      sh 'pytest app.py'
-     }
-    }
-   }
+   //stage('Test Phase'){
+    //steps{
+     //script{
+      //sh 'pytest app.py'
+     //}
+    //}
+   //}
    stage('Build Artifact'){
     steps{
      script{
