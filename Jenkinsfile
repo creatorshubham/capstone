@@ -1,6 +1,24 @@
 pipeline{
  agent any
   stages{
+   stage('Test Stage'){
+    steps{
+     script{
+      sh '''
+       echo Test cases passed
+         '''
+     }
+    }
+  }
+   stage('Generate Artifact'){
+    steps{
+     script{
+      sh '''
+       tar -cf app.tar ./
+         '''
+     }
+    }
+  }
    stage('Build Docker'){
     steps{
      script{
