@@ -24,7 +24,7 @@ pipeline{
      script{
       sh '''
        echo 'Buid Docker Image'
-       docker build -t creatorshubham/capstone:v.${BUILD_NUMBER} .
+       docker build -t creatorshubham/capstone:development-v.${BUILD_NUMBER} .
          '''
      }
     }
@@ -34,21 +34,10 @@ pipeline{
      withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'pass')]) {
       script{
        sh 'docker login -u creatorshubham -p ${pass}'
-        sh 'docker push creatorshubham/capstone:v.${BUILD_NUMBER}'
+        sh 'docker push creatorshubham/capstone:development-v.${BUILD_NUMBER}'
       }
 }
     }
    }
-   stage('Deploying container to Kubernetes') {
-      steps {
-       withKubeConfig([credentialsId: 'kube-config']) {
-    script{
-     sh 'kubectl apply -f deployment.yml'
-     sh 'kubectl set image deployment/deployment01 capstonecontainer=creatorshubham/capstone:v.${BUILD_NUMBER}'
-        }
-}
-      }
-    }
-  }
-  
+  } 
 }
