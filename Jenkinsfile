@@ -39,5 +39,15 @@ pipeline{
 }
     }
    }
+   stage('Deploying container to Kubernetes') {
+      steps {
+       withKubeConfig([credentialsId: 'kube-config']) {
+    script{
+     sh 'kubectl apply -f deployment.yml'
+     sh 'kubectl set image deployment/deployment01 capstonecontainer=creatorshubham/capstone:v.${BUILD_NUMBER}'
+        }
+}
+      }
+    }
   } 
 }
