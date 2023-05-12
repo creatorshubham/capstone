@@ -34,7 +34,7 @@ pipeline{
      withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'pass')]) {
       script{
        sh 'docker login -u creatorshubham -p ${pass}'
-        sh 'docker push creatorshubham/capstone:development-v.${BUILD_NUMBER}'
+        sh 'docker push creatorshubham/capstone:v.${BUILD_NUMBER}'
       }
 }
     }
