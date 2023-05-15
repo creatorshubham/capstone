@@ -24,7 +24,7 @@ pipeline{
      script{
       sh '''
        echo 'Buid Docker Image'
-       docker build -t creatorshubham/capstone:development-v.${BUILD_NUMBER} .
+       docker build -t creatorshubham/capstone:v.${BUILD_NUMBER} .
          '''
      }
     }
